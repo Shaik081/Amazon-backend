@@ -3,7 +3,7 @@ const app = express()
 const dotenv = require('dotenv')
 const cors = require('cors')
 const path = require('path')
-const mongoDB = require('./config/mongoDB')
+const mongoDB = require('./DB/mongoDB')
 const productRoute = require('./routes/productRoute')
 
 dotenv.config({path:path.join(__dirname,'config','config.env')})
