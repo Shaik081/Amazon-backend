@@ -3,7 +3,7 @@ const Product = require('../model/productModel')
 
     const getProducts = async (req,res) => {
         try{
-        const product = await Product.find({})
+        const product = await Product.find()
 
         if(!product){
             return res.status(500).json({error:'products are not found'})

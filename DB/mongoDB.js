@@ -8,6 +8,7 @@ const mongoDB = async () => {
             
         }catch(err){
             console.log(`error ${err}`)
+            process.exit(1)
         }
     }
 
