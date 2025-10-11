@@ -6,7 +6,7 @@ const path = require('path')
 const mongoDB = require('./DB/mongoDB')
 const productRoute = require('./routes/productRoute')
 
-dotenv.config({path:path.join(__dirname,'config','config.env')})
+dotenv.config({path:path.join(__dirname,'config','.env')})
 
 mongoDB()
 
