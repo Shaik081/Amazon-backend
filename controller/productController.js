@@ -16,7 +16,7 @@ const Product = require('../model/productModel')
             
         }
     }
-    const SingleProduct = async(req,res) =>{
+    const singleProduct = async(req,res) =>{
 
         const id = req.params.id
 
@@ -74,5 +74,22 @@ const Product = require('../model/productModel')
         }
     }
 
+const searchProduct = async (req, res) => {
+  try {
+    const search = req.query.search?.trim() || '';
 
-module.exports = {getProducts,SingleProduct,updateProduct,deleteProduct}
+   
+    const query = search ? { name: { $regex: search, $options: 'i' } } : {};
+
+    const products = await Product.find(query);
+
+    return res.json(products);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+
+
+module.exports = {getProducts,singleProduct,updateProduct,deleteProduct, searchProduct}
